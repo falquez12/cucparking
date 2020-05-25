@@ -1,0 +1,95 @@
+const express = require('express');
+const rutas = express.Router();
+const path = require('path');
+const usuario = require('./models/usuario');
+const recibo = require('./models/recibo');
+const passport = require('passport');
+const {isAuthenticated} = require('./helpers/auth');
+
+rutas.get('/cucparking', async (req, res) => {
+    res.render('landing-page');
+});
+rutas.get('/login', (req, res) => {
+    res.render('login-page');
+});
+rutas.get('/singup', (req, res) => {
+    res.render('sing-up');
+});
+rutas.get('/profile', isAuthenticated, async (req, res) => {
+    var sw=true;
+    try {
+        var nrecibos = await recibo.countDocuments();
+        nrecibos=40-nrecibos;
+        const pagar = await recibo.findOne({'idusuario':req.user.name});
+        console.log("aquiii");
+        console.log(pagar);
+        if(pagar==''||pagar==null){
+            sw=true;
+        }else{
+            console.log("false");
+            sw=false;
+        }
+        res.render('profile-page',{layout: false,nrecibos,pagar,sw});
+    } catch (err) {
+        res.json({ message: err })
+    }
+});
+rutas.post('/profile', isAuthenticated, async (req, res) => {
+    var datetime = new Date();
+    var datetime2 = new Date();
+    console.log(datetime.getHours());
+    console.log(datetime.getMinutes());
+    var hora =parseInt(req.body.horas);
+    datetime2.setHours(datetime2.getHours()+hora);
+    hora1= datetime.getHours() + ":" +datetime.getMinutes();
+    hora2= datetime2.getHours() + ":" +datetime2.getMinutes();
+        const post = new recibo({
+            idusuario: req.body.name,
+            placa:    req.body.placa,
+            horaentrada: hora1,
+            horasalida: hora2,
+            precio:req.body.horas*2000,
+        });
+        try {
+            console.log("aqui");
+            console.log(post);
+            const savedPost = await post.save();
+            res.redirect('/profile');
+        } catch (err) {
+            res.json({ message: err })
+        }
+});
+rutas.post('/login', passport.authenticate('local',{
+    successRedirect: '/profile',
+    failureRedirect: '/login',
+    failureFlash: true
+})); 
+
+rutas.post('/singup', async (req, res) => {
+    var errors2 =[];
+    if(req.body.pass==req.body.pass2){
+        const post = new usuario({
+            email: req.body.email,
+            pass: req.body.pass,
+            name: req.body.name,
+            placa: req.body.placa,
+        });
+        console.log(req.body);
+        try {
+            const savedPost = await post.save();
+            res.redirect('/login');
+        } catch (err) {
+            res.json({ message: err })
+        }
+    }else{
+        errors2.push({text: 'Error en la Contrasena'});
+        res.render('sing-up',{errors2});
+    }
+});
+
+rutas.get('/logout', async (req, res) => {
+    req.logout();
+    req.flash("success_msg", "You are logged out now.");
+    res.redirect("/login");
+});
+module.exports = rutas;

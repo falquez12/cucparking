@@ -1,0 +1,195 @@
+
+.zone2 {
+    cursor:pointer;
+    color:#FFF;
+    font-size:2em;
+    border-radius:4px;
+    border:1px solid #bbb;
+    transition: all 0.3s linear;
+}
+
+.zone3 {
+    cursor:pointer;
+    color:#FFF;
+    font-size:2em;
+    border-radius:4px;
+    border:1px solid #bbb;
+    transition: all 0.3s linear;
+}
+
+.zone2:hover {
+    -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+}
+
+/*https://paulund.co.uk/how-to-create-shiny-css-buttons*/
+/***********************************************************************
+ *  Green Background
+ **********************************************************************/
+ .black2{
+    background: #222422;
+    border-color: #222422;
+ }
+ .green2{
+    background: #56B870; /* Old browsers */
+    background: -moz-linear-gradient(top, #56B870 0%, #a5c956 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#56B870), color-stop(100%,#a5c956)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #56B870 0%,#a5c956 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #56B870 0%,#a5c956 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #56B870 0%,#a5c956 100%); /* IE10+ */
+    background: linear-gradient(top, #56B870 0%,#a5c956 100%); /* W3C */
+}
+
+/***********************************************************************
+ *  Red Background
+ **********************************************************************/
+ .red2{
+    background: #C655BE; /* Old browsers */
+    background: -moz-linear-gradient(top, #C655BE 0%, #cf0404 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#C655BE), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* IE10+ */
+    background: linear-gradient(top, #C655BE 0%,#cf0404 100%); /* W3C */
+    
+}
+
+/***********************************************************************
+ *  Yellow Background
+ **********************************************************************/
+ .yellow2{
+    background: #F3AAAA; /* Old browsers */
+    background: -moz-linear-gradient(top, #F3AAAA 0%, #febf04 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F3AAAA), color-stop(100%,#febf04)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* IE10+ */
+    background: linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* W3C */
+    
+}
+
+/***********************************************************************
+ *  Blue Background
+ **********************************************************************/
+ .blue2{
+    background: #7abcff; /* Old browsers */
+    background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
+    background: linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
+    
+}
+.green2 {
+  grid-area: header;
+}
+.red2{
+  grid-area: main;
+}
+.blue2 {
+  grid-area: sidebar;
+}
+.yellow2 {
+  grid-area: footer;
+}
+.sticky2{
+    position: fixed;
+    top:0;
+    width: 100%;
+}
+.main-nav2{
+    display: flex;
+    list-style: none;
+    margin: 10px;
+    padding: 0px;
+    font-size: 0.7em;
+}
+.push2{
+    margin-left:auto;
+}
+@media only screen and (max-width: 600px){
+    .main-nav2{
+        font-size: 0.7em;
+        padding: 0;
+    }
+}
+.portada2{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    height: 60vh; 
+}
+.wrapper2{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items:center;
+    justify-content: center;
+}
+.wrapper3{
+  display: grid;
+  grid-template-columns:  repeat(auto-fit,minmax(300px,1fr));
+  content: center;
+}
+
+.box2 > img{
+    width: 10rem;
+    height:auto;
+}
+.logo-container{
+    background-color:rgba(0,0,0,0.6);
+    border: 2px;
+    border-color: red;
+}
+.texto{
+    justify-self:center;
+    align-self: center;
+    text-align: center;
+}
+.peso{
+    font-weight: 500;
+}
+.new1{
+  border: 1px solid black;
+  border-radius: 5px;
+  width:30%;
+}
+.new2{
+border: 1px solid gainsboro;
+ border-radius: 5px;
+ width:100%;
+ margin:0px;
+ padding: 0px;
+}
+.box2{
+      display:flex;
+    align-items:center;
+    justify-content: center;
+    background-color: #444;
+    padding: 10%;
+    margin: 10px;
+}
+.cover2{
+   width: 30rem;
+}
+.boton:Hover{
+    color:#222422;
+    background-color: white;
+}
+.negro{
+    background-color:black;
+}
+.seccion{
+    margin: 70px;
+}
+.apps{
+    width: 20%;
+}
+.grande{
+    font-size: 80px;
+}
+.margengform{
+    margin: 40px 0;
+}
